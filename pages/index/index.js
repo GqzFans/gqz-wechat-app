@@ -105,7 +105,7 @@ Page({
     let imgHeight = oImgH * scale;
     // 图片对象
     let images = this.data.images;
-    let imageObj = null;
+    let imageObj = {};
     // Image
     for (let i = 0; i < images.length; i++) {
       let img = images[i];
@@ -140,7 +140,7 @@ Page({
     let _this = this;
     let images = [];
     // 图片页数计算
-    if ((_this.data.imagePageNum === 1) || (_this.imageTotalPage > _this.data.imagePageNum)) {
+    if ((_this.data.imagePageNum === 1) || (_this.imageTotalPage >= _this.data.imagePageNum)) {
       console.log('判断图片是否为最后一页：当前加载图片页数：', _this.data.imagePageNum);
     } else {
       console.log('判断图片是否为最后一页：暂时没有更多图片啦');
@@ -177,7 +177,7 @@ Page({
         // 最大页数
         _this.imageTotalPage = res.data.result.pages;
         // 页数增加
-        if (_this.imageTotalPage > _this.data.imagePageNum) {
+        if (_this.imageTotalPage >= _this.data.imagePageNum) {
           _this.data.imagePageNum++;
         }
         // 图片webp处理
@@ -227,7 +227,7 @@ Page({
     let emoticonHeight = oEmoticonH * emoticonScale;
     // 表情包对象
     let emoticons = this.data.emoticons;
-    let emoticonObj = null;
+    let emoticonObj = {};
     // Emoticon
     for (let i = 0; i < emoticons.length; i++) {
       let emoticon = emoticons[i];
@@ -262,7 +262,7 @@ Page({
     let _this = this;
     let emoticons = [];
     // 表情包页数计算
-    if ((_this.data.emoticonPageNum === 1) || (_this.emoticonTotalPage > _this.data.emoticonPageNum)) {
+    if ((_this.data.emoticonPageNum === 1) || (_this.emoticonTotalPage >= _this.data.emoticonPageNum)) {
       console.log('判断表情包是否为最后一页：当前加载表情包页数：', _this.data.emoticonPageNum);
     } else {
       console.log('判断表情包是否为最后一页：暂时没有更多表情包啦');
@@ -297,6 +297,10 @@ Page({
         emoticons = res.data.result.list;
         // 最大页数
         _this.emoticonTotalPage = res.data.result.pages;
+        // 页数增加
+        if (_this.emoticonTotalPage >= _this.data.emoticonPageNum) {
+          _this.data.emoticonPageNum++;
+        }
         // 赋值处理
         _this.setData({
           emoticonLoadingCount: emoticons.length,
