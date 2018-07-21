@@ -1,0 +1,60 @@
+<view class='content'>
+  <view class="swiper-tab">
+    <button class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">梓图</button>
+    <button class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">表情包</button>
+  </view>
+
+  <swiper current="{{currentTab}}" class='swiper-box' duration="300" bindchange="bindChange">
+    <swiper-item>
+      <!-- loadImages -->
+      <!-- {{ scrollH }}px -->
+      <scroll-view scroll-y="true" style="height: 100%;" bindscrolltolower="loadImages">
+        <view class='img_item'>
+          <view wx:for="{{ imageList1 }}" wx:key="item">
+            <view class="item_info">
+              <image src="{{ item.imageUrl }}" style="width: 100%; height: {{ item.height }}px; display: block;" data-src="{{ item }}" bindtap="previewImage"></image>
+            </view>
+            <view class='code' id="{{ item.id }}">{{ item.imageDescription }}</view>
+          </view>
+        </view>
+
+        <view class='img_item'>
+          <view wx:for="{{ imageList2 }}" wx:key="item">
+            <view class="item_info">
+              <image src="{{ item.imageUrl }}" style="width: 100%; height: {{ item.height }}px; display: block;" data-src="{{ item }}" bindtap="previewImage"></image>
+            </view>
+            <view class='code' id="{{ item.id }}">{{ item.imageDescription }}</view>
+          </view>
+        </view>
+      </scroll-view>
+
+    </swiper-item>
+
+    <swiper-item>
+      <scroll-view scroll-y="true" style="height: 100%;" bindscrolltolower="loadEmoticons">
+        <view class='img_item'>
+          <view wx:for="{{ emoticonList1 }}" wx:key="item">
+            <view class="item_info">
+              <image src="{{ item.emoticonUrl }}" style="width: 100%; height: {{ item.height }}px; display: block;" data-src="{{ item }}" bindtap="previewEmoticon"></image>
+            </view>
+            <view class='code' id="{{ item.id }}">{{ item.emoticonDescription }}</view>
+          </view>
+        </view>
+
+        <view class='img_item'>
+          <view wx:for="{{ emoticonList2 }}" wx:key="item">
+            <view class="item_info">
+              <image src="{{ item.emoticonUrl }}" style="width: 100%; height: {{ item.height }}px; display: block;" data-src="{{ item }}" bindtap="previewEmoticon"></image>
+            </view>
+            <view class='code' id="{{ item.id }}">{{ item.emoticonDescription }}</view>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+
+  <view style="display: none;">
+    <image wx:for="{{images}}" wx:key="item" id="{{item.id}}" src="{{item.imageUrl}}" bindload="onImageLoad"></image>
+    <image wx:for="{{emoticons}}" wx:key="item" id="{{item.id}}" src="{{item.emoticonUrl}}" bindload="onEmoticonLoad"></image>
+  </view>
+</view>

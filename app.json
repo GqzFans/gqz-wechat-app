@@ -1,0 +1,42 @@
+{
+  "pages":[
+    "pages/index/index", 
+    "pages/about/index",
+    "pages/respecting/index",
+    "pages/features/index",
+    "pages/feedback/index"
+  ],
+  "window":{
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FFC0CB",
+    "navigationBarTitleText": "梓与你说",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#737373 ",
+    "selectedColor": "#1499DD",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "assets/icon/tab_1.png",
+        "selectedIconPath": "assets/icon/tab_1s.png", 
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/about/index",
+        "iconPath": "assets/icon/tab_2.png",
+        "selectedIconPath": "assets/icon/tab_2s.png",
+        "text": "关于"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}

@@ -1,0 +1,52 @@
+<view class='me-content'>
+  <view class='me-content-pageInfo'>
+    <view class='userInfo'>
+      <view class="userinfo-avatar">
+        <open-data type="userAvatarUrl"></open-data>
+      </view>
+      <open-data type="userNickName" class="userinfo-nickname"></open-data>
+    </view>
+  </view>
+
+  <View class='list-wrapper'>
+    <View class='weui-cells weui-cells_after-title'>
+
+      <navigator url='../respecting/index' open-type='navigate' hover-class='none' style="width:100%">
+        <view class='list-item'>
+          <view class="list-text">关于</view>
+          <view class="list-tips">
+            <text></text>
+            <image class="menu-item-arrow" src="../../assets/icon/icon-arrow.png"></image>
+          </view>
+        </view>
+      </navigator>
+
+      <navigator url='../features/index' open-type='navigate' hover-class='none' style="width:100%">
+        <view class='list-item'>
+          <view class="list-text">功能介绍</view>
+          <view class="list-tips">
+            <text></text>
+            <image class="menu-item-arrow" src="../../assets/icon/icon-arrow.png"></image>
+          </view>
+        </view>
+      </navigator>
+
+      <navigator url='../feedback/index' open-type='navigate' hover-class='none' style="width:100%">
+        <view class='list-item'>
+          <view class="list-text">意见反馈</view>
+          <view class="list-tips">
+            <text></text>
+            <image class="menu-item-arrow" src="../../assets/icon/icon-arrow.png"></image>
+          </view>
+        </view>
+      </navigator>
+
+      <view class='list-item'>
+        <view class="list-text">当前版本</view>
+        <view class="list-tips">
+          <text>v1.1.0</text>
+        </view>
+      </view>
+    </View>
+  </View>
+</view>

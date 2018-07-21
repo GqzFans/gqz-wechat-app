@@ -1,0 +1,42 @@
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-panel weui-panel_access">
+      <view class="weui-panel__bd">
+
+        <view class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+          <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+            <image class="weui-media-box__thumb" src="../../assets/image/icon-tupian.png" style="border-radius: 50%;"/>
+          </view>
+          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+            <view class="weui-media-box__title">梓图</view>
+            <view class="weui-media-box__desc">
+            因为可爱，所以宠爱，高秋梓大量美图来袭，拿走不谢。
+            </view>
+          </view>
+        </view>
+
+        <view class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+          <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+            <image class="weui-media-box__thumb" src="../../assets/image/icon-bqb.png" style="border-radius: 50%;"/>
+          </view>
+          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+            <view class="weui-media-box__title">表情包</view>
+            <view class="weui-media-box__desc">
+            胖虎行走的表情包，拯救不开心，治愈系少女，走过路过不要错过哦。</view>
+          </view>
+        </view>
+
+        <view class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+          <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+            <image class="weui-media-box__thumb" src="../../assets/image/icon-more.png" style="border-radius: 50%;"/>
+          </view>
+          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+            <view class="weui-media-box__title">尽请期待</view>
+            <view class="weui-media-box__desc">
+            开发小哥哥24小时不停工作中，更多功能请秋葵们耐心等待。</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

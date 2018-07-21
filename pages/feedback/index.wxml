@@ -1,0 +1,15 @@
+<view class="page">
+  <view class="page__bd">
+    <form bindsubmit='submitForm'>
+      <view class="weui-cells__title" style='padding-left: 15px !important;'>意见及建议</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell">
+          <view class="weui-cell__bd">
+            <textarea class="weui-textarea" placeholder="请输入内容" style="height: 5.3em; font-size: 13px; text-align: left;" name="feedbackContent"/>
+          </view>
+        </view>
+      </view>
+      <button bindgetuserinfo="userInfoHandler" open-type="getUserInfo" class="weui-btn mini-btn" type="primary" form-type="submit">确定</button>
+    </form>
+  </view>
+</view>

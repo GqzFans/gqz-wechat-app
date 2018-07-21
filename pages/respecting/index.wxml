@@ -1,0 +1,36 @@
+<view class="page">
+  <view class="weui-panel">
+    <view class="weui-panel__bd">
+      <view class="weui-media-box weui-media-box_text">
+        <view class="weui-media-box__title weui-media-box__title_in-text">关于资源站</view>
+        <view class="weui-media-box__desc">
+        各位可爱的秋葵~你想要的胖虎表情包，美照，可爱的小视频，无论是直拍舞蹈还是音乐录制，只要你想要的，安利小站都有哦。
+        </view>
+        <view class="weui-media-box__desc">
+        同时，梓与你说（安利小站）也面向广大粉丝进行招募。希望有愿意一起为高秋梓的美好未来贡献力量的秋葵加入。
+        掌握高秋梓第一手资料，实时跟进球球最新动态，资源组开始招新啦！
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="weui-panel">
+    <view class="weui-panel__bd">
+      <view class="weui-media-box weui-media-box_text">
+        <view class="weui-media-box__title weui-media-box__title_in-text">互动平台</view>
+        <view class="weui-media-box__desc">微博：@创造101-蜜蜂少女队高秋梓</view>
+        <view class="weui-media-box__desc">微博：@创造101_高秋梓后援会</view>
+        <view class="weui-media-box__desc">微博：@高秋梓的安利小站</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="weui-panel">
+    <view class="weui-panel__bd">
+      <view class="weui-media-box weui-media-box_text">
+        <view class="weui-media-box__title weui-media-box__title_in-text">关于小程序</view>
+        <view class="weui-media-box__desc">如果你有一颗热爱技术和喜爱球球的心，欢迎联系下方微博加入到开源项目！</view>
+        <view class="weui-media-box__desc">作者微博：@DragonYuan丶</view>
+      </view>
+    </view>
+  </view>
+</view>
