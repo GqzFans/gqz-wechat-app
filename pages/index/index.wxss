@@ -13,7 +13,7 @@ page {
   width: 100%;
   background: #fff;
   text-align: center;
-  margin-top: 2rpx;
+  z-index: 301;
 }
 
 .swiper-tab-list {

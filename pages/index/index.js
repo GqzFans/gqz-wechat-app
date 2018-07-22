@@ -15,14 +15,16 @@ Page({
     images: [],
     imageList1: [],
     imageList2: [],
+    nowRenderImageCount: 0,
     // 表情包相关
     emoticonWidth: 0,
     emoticonLoadingCount: 0,
     emoticons: [],
     emoticonList1: [],
     emoticonList2: [],
+    nowRenderEmoticonCount: 0,
     // 全局分页
-    pageSize: 10,
+    pageSize: 20,
     // 图片分页
     imagePageNum: 1,
     imageTotalPage: 0,
@@ -92,19 +94,20 @@ Page({
    * 计算图片大小，渲染加载 
    */
   onImageLoad: function(e) {
+    let _this = this;
     let imageId = e.currentTarget.id;
     // 图片原始宽度
     let oImgW = e.detail.width;
     // 图片原始高度
     let oImgH = e.detail.height;
     // 图片设置的宽度
-    let imgWidth = this.data.imgWidth;
+    let imgWidth = _this.data.imgWidth;
     // 比例计算
     let scale = imgWidth / oImgW;
     // 自适应高度
     let imgHeight = oImgH * scale;
     // 图片对象
-    let images = this.data.images;
+    let images = _this.data.images;
     let imageObj = {};
     // Image
     for (let i = 0; i < images.length; i++) {
@@ -115,15 +118,17 @@ Page({
       }
     }
     imageObj.height = imgHeight;
-    let loadingCount = this.data.loadingCount - 1;
-    let imageList1 = this.data.imageList1;
-    let imageList2 = this.data.imageList2;
+    let loadingCount = _this.data.loadingCount - 1;
+    let imageList1 = _this.data.imageList1;
+    let imageList2 = _this.data.imageList2;
     // 判断当前图片添加到左列还是右列
     if (imageList1.length <= imageList2.length) {
       imageList1.push(imageObj);
     } else {
       imageList2.push(imageObj);
     }
+    // 当前图片渲染总数
+    _this.data.nowRenderImageCount = _this.data.imageList1.length + _this.data.imageList2.length;
     // 赋值
     let data = {
       loadingCount: loadingCount,
@@ -132,18 +137,21 @@ Page({
     };
     // 当前这组图片已加载完毕，则清空图片临时加载区域的内容
     if (!loadingCount) {
-      data.images = [];
+      _this.data.images = [];
     }
-    this.setData(data);
+    _this.setData(data);
   },
   loadImages: function() {
+    wx.showLoading({
+      title: '加载中',
+    })
     let _this = this;
     let images = [];
+    // 页数数据打印
+    console.log('-> 图片:当前页数 =', _this.data.imagePageNum + '；总页数 =', _this.data.imageTotalPage);
     // 图片页数计算
-    if ((_this.data.imagePageNum === 1) || (_this.imageTotalPage >= _this.data.imagePageNum)) {
-      console.log('判断图片是否为最后一页：当前加载图片页数：', _this.data.imagePageNum);
-    } else {
-      console.log('判断图片是否为最后一页：暂时没有更多图片啦');
+    if ((_this.data.imageTotalPage <= _this.data.imagePageNum) && (_this.data.imageTotalPage !== 0)) {
+      console.log('-> 判断图片是否为最后一页：暂时没有更多图片啦');
       wx.showToast({
         title: '暂时没有更多图片啦',
         icon: 'none'
@@ -151,15 +159,27 @@ Page({
       return false;
     }
     // 判断图片是否仅有一页
-    console.log('判断图片是否仅有一页：当前页数 = ', _this.data.imagePageNum + 
-      '；总页数 = ', _this.imageTotalPage);
-    if ((_this.data.imagePageNum === 1) && (_this.imageTotalPage === 1)) {
-      console.log('判断图片是否仅有一页：暂时没有更多图片啦');
+    if ((_this.data.imagePageNum === 1) && (_this.data.imageTotalPage === 1)) {
+      console.log('-> 判断图片是否仅有一页：暂时没有更多图片啦');
       wx.showToast({
         title: '暂时没有更多图片啦',
         icon: 'none'
       })
       return false;
+    }
+    // 页数增加
+    if (_this.data.imageTotalPage >= _this.data.imagePageNum) {
+      // 当前最多图片数量
+      let nowMaxImageCount = _this.data.pageSize * _this.data.imagePageNum;
+      // 当前最少图片数量
+      let nowMinImageCount = nowMaxImageCount - _this.data.pageSize;
+      // 用当前渲染图片数量比较是否可以增加页数
+      if ((_this.data.nowRenderImageCount <= nowMaxImageCount) && 
+          (_this.data.nowRenderImageCount >= nowMinImageCount)) {
+        _this.data.imagePageNum++;
+      } else {
+        return false;
+      }
     }
     // AJAX
     wx.request({
@@ -174,30 +194,23 @@ Page({
       },
       success(res) {
         images = res.data.result.list;
-        // 最大页数
-        _this.imageTotalPage = res.data.result.pages;
-        // 页数增加
-        if (_this.imageTotalPage >= _this.data.imagePageNum) {
-          _this.data.imagePageNum++;
-        }
-        // 图片webp处理
-        for (var i = 0; i < images.length; i++) {
-          // images[i].imageUrl = images[i].imageUrl + '?x-oss-process=style/webp';
-          images[i].imageUrl = images[i].imageUrl;
-        }
         // 赋值处理
         _this.setData({
           loadingCount: images.length,
           images: images
         });
+        // 最大页数
+        _this.data.imageTotalPage = res.data.result.pages;
       },
       fail(msg) {
+        wx.hideLoading();
         wx.showToast({
           title: '请求失败',
           icon: 'none'
         })
       },
       complete: function(res) {
+        wx.hideLoading();
         if (res == null || res.data == null) {
           wx.showToast({
             title: '网络请求失败',
@@ -214,19 +227,20 @@ Page({
    * 计算表情包大小，渲染加载
    */
   onEmoticonLoad: function(e) {
+    let _this = this;
     let emoticonId = e.currentTarget.id;
     // 表情包原始宽度
     let oEmoticonW = e.detail.width;
     // 表情包原始高度
     let oEmoticonH = e.detail.height;
     // 表情包设置的宽度
-    let emoticonWidth = this.data.imgWidth;
+    let emoticonWidth = _this.data.imgWidth;
     // 比例计算
     let emoticonScale = emoticonWidth / oEmoticonW;
     // 自适应高度
     let emoticonHeight = oEmoticonH * emoticonScale;
     // 表情包对象
-    let emoticons = this.data.emoticons;
+    let emoticons = _this.data.emoticons;
     let emoticonObj = {};
     // Emoticon
     for (let i = 0; i < emoticons.length; i++) {
@@ -237,15 +251,17 @@ Page({
       }
     }
     emoticonObj.height = emoticonHeight;
-    let emoticonLoadingCount = this.data.loadingCount - 1;
-    let emoticonList1 = this.data.emoticonList1;
-    let emoticonList2 = this.data.emoticonList2;
+    let emoticonLoadingCount = _this.data.loadingCount - 1;
+    let emoticonList1 = _this.data.emoticonList1;
+    let emoticonList2 = _this.data.emoticonList2;
     // 判断当前图片添加到左列还是右列
     if (emoticonList1.length <= emoticonList2.length) {
       emoticonList1.push(emoticonObj);
     } else {
       emoticonList2.push(emoticonObj);
     }
+    // 当前图片渲染总数
+    _this.data.nowRenderEmoticonCount = _this.data.emoticonList1.length + _this.data.emoticonList2.length;
     // 赋值
     let data = {
       emoticonLoadingCount: emoticonLoadingCount,
@@ -254,17 +270,20 @@ Page({
     };
     // 当前这组图片已加载完毕，则清空图片临时加载区域的内容
     if (!emoticonLoadingCount) {
-      data.emoticons = [];
+      _this.data.emoticons = [];
     }
-    this.setData(data);
+    _this.setData(data);
   },
   loadEmoticons: function() {
+    wx.showLoading({
+      title: '加载中',
+    })
     let _this = this;
     let emoticons = [];
+    // 页数数据打印
+    console.log('表情包:当前页数 =', _this.data.emoticonPageNum + '；总页数 =', _this.data.emoticonTotalPage);
     // 表情包页数计算
-    if ((_this.data.emoticonPageNum === 1) || (_this.emoticonTotalPage >= _this.data.emoticonPageNum)) {
-      console.log('判断表情包是否为最后一页：当前加载表情包页数：', _this.data.emoticonPageNum);
-    } else {
+    if ((_this.data.emoticonTotalPage <= _this.data.emoticonPageNum) && (_this.data.emoticonTotalPage !== 0)) {
       console.log('判断表情包是否为最后一页：暂时没有更多表情包啦');
       wx.showToast({
         title: '暂时没有更多表情包啦',
@@ -272,10 +291,8 @@ Page({
       })
       return false;
     }
-    // 判断表情包是否仅有一页
-    console.log('判断表情包是否仅有一页：当前页数 = ', _this.data.emoticonPageNum +
-      '；总页数 = ', _this.emoticonTotalPage);
-    if ((_this.data.emoticonPageNum === 1) && (_this.emoticonTotalPage === 1)) {
+    // 判断图片是否仅有一页
+    if ((_this.data.emoticonPageNum === 1) && (_this.data.emoticonTotalPage === 1)) {
       console.log('判断表情包是否仅有一页：暂时没有更多表情包啦');
       wx.showToast({
         title: '暂时没有更多表情包啦',
@@ -283,6 +300,21 @@ Page({
       })
       return false;
     }
+    // 页数增加
+    if (_this.data.emoticonTotalPage >= _this.data.emoticonPageNum) {
+      // 当前最多图片数量
+      let nowMaxEmoticonCount = _this.data.pageSize * _this.data.emoticonPageNum;
+      // 当前最少图片数量
+      let nowMinEmoticonCount = nowMaxEmoticonCount - _this.data.pageSize;
+      // 用当前渲染图片数量比较是否可以增加页数
+      if ((_this.data.nowRenderEmoticonCount <= nowMaxEmoticonCount) &&
+        (_this.data.nowRenderEmoticonCount >= nowMinEmoticonCount)) {
+        _this.data.emoticonPageNum++;
+      } else {
+        return false;
+      }
+    }
+    // AJAX
     wx.request({
       method: "POST",
       header: {
@@ -295,25 +327,23 @@ Page({
       },
       success(res) {
         emoticons = res.data.result.list;
-        // 最大页数
-        _this.emoticonTotalPage = res.data.result.pages;
-        // 页数增加
-        if (_this.emoticonTotalPage >= _this.data.emoticonPageNum) {
-          _this.data.emoticonPageNum++;
-        }
         // 赋值处理
         _this.setData({
           emoticonLoadingCount: emoticons.length,
           emoticons: emoticons
         });
+        // 最大页数
+        _this.data.emoticonTotalPage = res.data.result.pages;
       },
       fail(msg) {
+        wx.hideLoading();
         wx.showToast({
           title: '请求失败',
           icon: 'none'
         })
       },
       complete: function(res) {
+        wx.hideLoading();
         if (res == null || res.data == null) {
           wx.showToast({
             title: '网络请求失败',
@@ -378,27 +408,7 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
-    // let _this = this;
-    // if (_this.data.currentTab === 0) {
-    //   if (_this.imageTotalPage > _this.data.imagePageNum) {
-    //     _this.data.imagePageNum++;
-    //     console.log('_this.data.imagePageNum = ', _this.data.imagePageNum);
-    //     // 加载图片
-    //     // _this.loadImages();
-    //   } else {
-    //     wx.showToast({
-    //       title: '暂时没有更多图片啦',
-    //       icon: 'none'
-    //     })
-    //   }
-    // } else {
-    //   wx.showToast({
-    //     title: '暂时没有更多表情包啦',
-    //     icon: 'none'
-    //   })
-    // }
-  },
+  onReachBottom: function() {},
 
   /**
    * 用户点击右上角分享
