@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    contentDefault: '',
+    // 全局第一次加载表情包
+    firstLoadingEmoticon: 0,
     currentTab: 0,
     tabActivate: 0,
     // 全局相关
@@ -37,6 +38,13 @@ Page({
    * 滑动切换tab 
    */
   bindChange: function(e) {
+    let _this = this;
+    // 仅在第一次滑到到表情包时才调用方法
+    if (_this.data.firstLoadingEmoticon === 0 && e.detail.current === 1) {
+      _this.data.firstLoadingEmoticon++;
+      // 首次渲染表情包
+      _this.loadEmoticons();
+    }
     this.setData({
       currentTab: e.detail.current
     })
@@ -366,7 +374,6 @@ Page({
         });
         // 加载首组图片
         this.loadImages();
-        this.loadEmoticons();
       }
     })
   },
