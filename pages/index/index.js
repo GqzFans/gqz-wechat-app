@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    contentDefault: '',
     currentTab: 0,
     tabActivate: 0,
     // 全局相关
@@ -24,7 +25,7 @@ Page({
     emoticonList2: [],
     nowRenderEmoticonCount: 0,
     // 全局分页
-    pageSize: 20,
+    pageSize: 10,
     // 图片分页
     imagePageNum: 1,
     imageTotalPage: 0,
@@ -112,7 +113,7 @@ Page({
     // Image
     for (let i = 0; i < images.length; i++) {
       let img = images[i];
-      if (img.id === imageId) {
+      if (img.id == imageId) {
         imageObj = img;
         break;
       }
@@ -144,6 +145,7 @@ Page({
   loadImages: function() {
     wx.showLoading({
       title: '加载中',
+      mask: true
     })
     let _this = this;
     let images = [];
@@ -201,6 +203,9 @@ Page({
         });
         // 最大页数
         _this.data.imageTotalPage = res.data.result.pages;
+        setTimeout(() => {
+          wx.hideLoading()
+        }, 1000);
       },
       fail(msg) {
         wx.hideLoading();
@@ -208,15 +213,6 @@ Page({
           title: '请求失败',
           icon: 'none'
         })
-      },
-      complete: function(res) {
-        wx.hideLoading();
-        if (res == null || res.data == null) {
-          wx.showToast({
-            title: '网络请求失败',
-            icon: 'none'
-          })
-        }
       }
     });
   },
@@ -277,6 +273,7 @@ Page({
   loadEmoticons: function() {
     wx.showLoading({
       title: '加载中',
+      mask: true
     })
     let _this = this;
     let emoticons = [];
@@ -334,6 +331,9 @@ Page({
         });
         // 最大页数
         _this.data.emoticonTotalPage = res.data.result.pages;
+        setTimeout(() => {
+          wx.hideLoading()
+        }, 1100);
       },
       fail(msg) {
         wx.hideLoading();
@@ -341,15 +341,6 @@ Page({
           title: '请求失败',
           icon: 'none'
         })
-      },
-      complete: function(res) {
-        wx.hideLoading();
-        if (res == null || res.data == null) {
-          wx.showToast({
-            title: '网络请求失败',
-            icon: 'none'
-          })
-        }
       }
     });
   },
