@@ -3,7 +3,7 @@
     <button class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">梓图</button>
     <button class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">表情包</button>
   </view>
-  <swiper current="{{currentTab}}" class='swiper-box' duration="700" bindchange="bindChange">
+  <swiper current="{{currentTab}}" class='swiper-box' duration="650" bindchange="bindChange">
     <swiper-item>
       <!-- loadImages -->
       <!-- {{ scrollH }}px -->
