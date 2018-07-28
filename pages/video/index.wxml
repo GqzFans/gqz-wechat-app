@@ -1,0 +1,23 @@
+<!-- <scroll-view scroll-y="true" style="height: 100%;" bindscrolltolower="loadVideos">
+  <view class='video-box' wx:for="{{ videos }}" wx:key="*this">
+    <txv-video vid="{{ item.videoVid }}" playerid="txv1" class='txv-style'></txv-video>
+    <view class='video-bottom'>
+      <view class='video-icon'>
+        <text class='video-icon-text'>{{ item.videoType }}</text>
+      </view>
+      <view class='video-content'>{{ item.videoTitle }}</view>
+    </view>
+  </view>
+</scroll-view> -->
+
+<view>
+  <view class='video-box' wx:for="{{ videos }}" wx:key="*this">
+    <txv-video vid="{{ item.videoVid }}" playerid="txv1" class='txv-style'></txv-video>
+    <view class='video-bottom'>
+      <view class='video-icon'>
+        <text class='video-icon-text'>{{ item.videoType }}</text>
+      </view>
+      <view class='video-content'>{{ item.videoTitle }}</view>
+    </view>
+  </view>
+</view>

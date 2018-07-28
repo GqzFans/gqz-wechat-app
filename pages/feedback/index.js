@@ -15,7 +15,6 @@ Page({
       success: function (res) {
         _this.userInfo = res.userInfo;
         let userNickName = _this.userInfo.nickName;
-        console.log(userNickName);
         let feedbackContent = e.detail.value.feedbackContent;
         let checkFeedbackContent = validateForm.feedbackContent(feedbackContent, '请输入您的意见反馈');
         let checkUser = validateForm.checkUser(userNickName, '获取用户信息失败');

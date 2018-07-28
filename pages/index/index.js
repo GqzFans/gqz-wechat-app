@@ -203,24 +203,30 @@ Page({
         pageSize: _this.data.pageSize
       },
       success(res) {
-        images = res.data.result.list;
         // 赋值处理
         _this.setData({
-          loadingCount: images.length,
-          images: images
+          loadingCount: res.data.result.list.length,
+          images: res.data.result.list
         });
         // 最大页数
         _this.data.imageTotalPage = res.data.result.pages;
-        setTimeout(() => {
-          wx.hideLoading()
-        }, 1000);
       },
       fail(msg) {
-        wx.hideLoading();
         wx.showToast({
           title: '请求失败',
           icon: 'none'
         })
+      },
+      complete: function (res) {
+        setTimeout(function () {
+          wx.hideLoading()
+        }, 900);
+        if (res == null || res.data == null) {
+          wx.showToast({
+            title: '网络请求失败',
+            icon: 'none'
+          })
+        }
       }
     });
   },
@@ -339,16 +345,23 @@ Page({
         });
         // 最大页数
         _this.data.emoticonTotalPage = res.data.result.pages;
-        setTimeout(() => {
-          wx.hideLoading()
-        }, 1100);
       },
       fail(msg) {
-        wx.hideLoading();
         wx.showToast({
           title: '请求失败',
           icon: 'none'
         })
+      },
+      complete: function (res) {
+        setTimeout(function () {
+          wx.hideLoading()
+        }, 900);
+        if (res == null || res.data == null) {
+          wx.showToast({
+            title: '网络请求失败',
+            icon: 'none'
+          })
+        }
       }
     });
   },

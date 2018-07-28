@@ -26,6 +26,18 @@
           </view>
         </view>
 
+
+        <view class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+          <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+            <image class="weui-media-box__thumb" src="../../assets/image/icon-video.png" style="border-radius: 50%;"/>
+          </view>
+          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+            <view class="weui-media-box__title">视频</view>
+            <view class="weui-media-box__desc">
+            这里有秋葵们的饭制，还有球球多种类型的视频资源，各位了解一下啦。</view>
+          </view>
+        </view>
+
         <view class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
           <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
             <image class="weui-media-box__thumb" src="../../assets/image/icon-more.png" style="border-radius: 50%;"/>

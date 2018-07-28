@@ -1,6 +1,7 @@
 {
   "pages":[
-    "pages/index/index", 
+    "pages/index/index",
+    "pages/video/index",
     "pages/about/index",
     "pages/respecting/index",
     "pages/features/index",
@@ -21,8 +22,14 @@
       {
         "pagePath": "pages/index/index",
         "iconPath": "assets/icon/tab_1.png",
-        "selectedIconPath": "assets/icon/tab_1s.png", 
+        "selectedIconPath": "assets/icon/tab_1s.png",
         "text": "首页"
+      },
+      {
+        "pagePath": "pages/video/index",
+        "iconPath": "assets/icon/tab_video.png",
+        "selectedIconPath": "assets/icon/tab_video_s.png",
+        "text": "视频"
       },
       {
         "pagePath": "pages/about/index",
@@ -37,6 +44,12 @@
     "connectSocket": 10000,
     "uploadFile": 10000,
     "downloadFile": 10000
+  },
+  "plugins": {
+    "tencentvideo": {
+      "version": "1.1.1",
+      "provider": "wxa75efa648b60994b"
+    }
   },
   "debug": true
 }
