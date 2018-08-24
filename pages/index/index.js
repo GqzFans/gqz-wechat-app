@@ -9,6 +9,8 @@ Page({
     firstLoadingEmoticon: 0,
     currentTab: 0,
     tabActivate: 0,
+    // 是否可用webp
+    useWebp: false,
     // 全局相关
     scrollH: 0,
     // 图片相关
@@ -203,10 +205,17 @@ Page({
         pageSize: _this.data.pageSize
       },
       success(res) {
+        let imageArray = res.data.result.list;
+        if (_this.data.useWebp) {
+          for (var ts = 0; ts < imageArray.length; ts++) {
+            imageArray[ts].imageUrl = imageArray[ts].imageUrl + '?x-oss-process=style/webp';
+          }
+          console.log('useWebp-Image =', imageArray);
+        }
         // 赋值处理
         _this.setData({
-          loadingCount: res.data.result.list.length,
-          images: res.data.result.list
+          loadingCount: imageArray.length,
+          images: imageArray
         });
         // 最大页数
         _this.data.imageTotalPage = res.data.result.pages;
@@ -376,13 +385,18 @@ Page({
   onLoad: function() {
     wx.getSystemInfo({
       success: (res) => {
+        let userSystem = res.system;
+        var reg = RegExp(/iOS/);
+        let useWebp = !reg.test(userSystem);
+        console.log('判断系统是否可用webp =', useWebp);
         let ww = res.windowWidth;
         let wh = res.windowHeight;
         let imgWidth = ww * 0.5;
         let scrollH = wh;
         this.setData({
           scrollH: scrollH,
-          imgWidth: imgWidth
+          imgWidth: imgWidth,
+          useWebp: useWebp
         });
         // 加载首组图片
         this.loadImages();
