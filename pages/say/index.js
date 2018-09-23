@@ -12,6 +12,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   data: {
+    scrollTop: {
+      scroll_top: 0
+    }
   },
   onLoad: function () {
     this.getUserInfo();
@@ -87,4 +90,16 @@ Page({
   onGotUserInfo: function (e) {
     console.log(e.detail.encryptedData)
   },
+  goTopFun: function (e) {
+    var _top = this.data.scrollTop.scroll_top;
+    if (_top == 1) {
+      _top = 0;
+    } else {
+      _top = 1;
+    }
+    this.setData({
+      'scrollTop.scroll_top': _top
+    });
+    console.log(this.data.scrollTop)
+  }
 })

@@ -1,1 +1,41 @@
-<button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">获取用户信息</button>
+<!-- <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">获取用户信息</button> -->
+<scroll-view style="height: 100%;" scroll-y="true" scroll-top="{{scrollTop.scroll_top}}">  
+  <view class='say-box'>
+    <view class='say-content'>这是留言这是留言</view>
+  </view>
+  <view class='say-box'>
+    <view class='say-content'>这是留言这是留言</view>
+  </view>
+  <view class='say-box'>
+    <view class='say-content'>这是留言这是留言</view>
+  </view>
+  <view class='say-box'>
+    <view class='say-content'>这是留言这是留言</view>
+  </view>
+  <view class='say-box'>
+    <view class='say-content'>这是留言这是留言</view>
+  </view>
+  <view class='say-box'>
+    <view class='say-content'>这是留言这是留言</view>
+  </view>
+  <view class='say-box'>
+    <view class='say-content'>这是留言这是留言</view>
+  </view>
+  <view class='say-box'>
+    <view class='say-content'>这是留言这是留言</view>
+  </view>
+  <view class='say-box'>
+    <view class='say-content'>这是留言这是留言</view>
+  </view>
+  <view class='say-box'>
+    <view class='say-content'>这是留言这是留言</view>
+  </view>
+  <view class='say-box'>
+    <view class='say-content'>这是留言这是留言</view>
+  </view>
+</scroll-view>
+<view class='say-btn-box'>
+  <i class="icon iconfont icon-jiantou_yemian_xiangshang" catchtap="goTopFun"></i>
+  <!-- <i class="ihr"></i> -->
+  <i class="icon iconfont icon-bianji"></i>
+</view>

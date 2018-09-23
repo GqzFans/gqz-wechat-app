@@ -1,1 +1,47 @@
-/* pages/say/index.wxss */
+page {
+  display: block;
+  background-color: #f0f2f5;
+  height: 100%;
+}
+
+.say-box {
+  width: 96%;
+  height: 115rpx;
+  background-color: #FFF;
+  border-radius: 15rpx;
+  margin: 15rpx 0 0 2%;
+  z-index: 1;
+}
+
+.say-content {
+  font-size: 10pt;
+  display: block;
+  padding: 15rpx 0 0 20rpx;
+  text-align: left;
+}
+
+.say-btn-box {
+  width: 62rpx;
+  height: 140rpx;
+  background-color: #fff;
+  position: fixed;
+  right: 0px; 
+  bottom: 0px;
+  border-radius: 20rpx;
+  margin: 0 15rpx 20rpx 0;
+  z-index: 9999;
+  border: 1px solid #aaa;
+}
+
+.say-btn-box i {
+  width: 62rpx;
+  height: 60rpx;
+  display: block;
+  text-align: center;
+  margin-top: 9rpx;
+}
+
+.ihr {
+  border: 1px solid #000;
+  width: 45rpx;
+}
