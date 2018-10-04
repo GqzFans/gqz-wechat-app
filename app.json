@@ -5,8 +5,7 @@
     "pages/respecting/index",
     "pages/features/index",
     "pages/feedback/index",
-    "pages/aid/index",
-    "pages/say/index"
+    "pages/aid/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -25,12 +24,6 @@
         "iconPath": "assets/icon/tab_1.png",
         "selectedIconPath": "assets/icon/tab_1s.png",
         "text": "首页"
-      },
-      {
-        "pagePath": "pages/say/index",
-        "iconPath": "assets/icon/tab_heart.png",
-        "selectedIconPath": "assets/icon/tab_hearts.png",
-        "text": "心说"
       },
       {
         "pagePath": "pages/aid/index",

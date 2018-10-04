@@ -28,6 +28,17 @@
 
         <view class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
           <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+            <image class="weui-media-box__thumb" src="../../assets/image/icon-yy.png" style="border-radius: 50%;"/>
+          </view>
+          <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+            <view class="weui-media-box__title">应援</view>
+            <view class="weui-media-box__desc">
+            咱家虎子高秋梓全新新应援周边到啦！秋葵们抢先看！</view>
+          </view>
+        </view>
+
+        <view class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+          <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
             <image class="weui-media-box__thumb" src="../../assets/image/icon-more.png" style="border-radius: 50%;"/>
           </view>
           <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
