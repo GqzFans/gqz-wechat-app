@@ -2,7 +2,7 @@
   <view class="weui-panel">
     <view class="weui-panel__bd">
       <view class="weui-media-box weui-media-box_text">
-        <view class="weui-media-box__title weui-media-box__title_in-text">关于资源站</view>
+        <view class="weui-media-box__title weui-media-box__title_in-text">关于安利小站</view>
         <view class="weui-media-box__desc">
         各位可爱的秋葵~你想要的胖虎表情包，美照，可爱的小视频，无论是直拍舞蹈还是音乐录制，只要你想要的，安利小站都有哦。
         </view>
@@ -13,6 +13,19 @@
       </view>
     </view>
   </view>
+
+  <view class="weui-panel">
+    <view class="weui-panel__bd">
+      <view class="weui-media-box weui-media-box_text">
+        <view class="weui-media-box__title weui-media-box__title_in-text">与梓成说</view>
+        <view class="weui-media-box__desc">高秋梓，秋葵们一直在默默的关注着你支持着你，虽然我们在你人生道路上能给你的支持总是有限，但是还是想要好好疼你！当你哭泣的时候，我们陪你伤心，倾听你诉说，告诉你明天依旧阳光灿烂；当你笑容明媚的时候，我们想要把你写进诗里。</view>
+        <view class="weui-media-box__desc">心疼你的心疼，感受你的感受，你的微笑是我快乐的通行号。你的过去，我没来的及参与。你的眼下，我又怎会甘心错过。高秋梓！你是秋葵们这辈子想要努力地去守护的人。我们说好不分离，要一直一直走下去，你一定不知道你的微笑，可以拯救我们的全世界，秋葵们永远在你身后，只要你一回头就能看见，请让我们陪你走向更远的未来。</view>
+        <view class="weui-media-box__desc">与梓成说，秋葵永远和你在一起。GAOQIUZI.CN</view>
+        <view class="weui-media-box__desc">www.gaoqiuzi.cn</view>
+      </view>
+    </view>
+  </view>
+
   <view class="weui-panel">
     <view class="weui-panel__bd">
       <view class="weui-media-box weui-media-box_text">

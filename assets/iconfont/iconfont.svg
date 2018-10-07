@@ -1,0 +1,35 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<!--
+2013-9-30: Created.
+-->
+<svg>
+<metadata>
+Created by iconfont
+</metadata>
+<defs>
+
+<font id="iconfont" horiz-adv-x="1024" >
+  <font-face
+    font-family="iconfont"
+    font-weight="500"
+    font-stretch="normal"
+    units-per-em="1024"
+    ascent="896"
+    descent="-128"
+  />
+    <missing-glyph />
+    
+    <glyph glyph-name="bianji" unicode="&#60093;" d="M499.2 614.4l243.2-243.2L413.866667 42.666667H170.666667v243.2l328.533333 328.533333z m0-123.733333L256 247.466667V128h119.466667l243.2 243.2-119.466667 119.466667zM614.4 725.333333L853.333333 482.133333l-72.533333-72.533333-243.2 243.2L614.4 725.333333z"  horiz-adv-x="1024" />
+
+    
+    <glyph glyph-name="jiantou_liebiaoshouqi" unicode="&#60163;" d="M533.333333 430.933333L358.4 256 298.666667 315.733333l234.666666 234.666667 234.666667-234.666667-64-59.733333-170.666667 174.933333z"  horiz-adv-x="1024" />
+
+    
+    <glyph glyph-name="jiantou_yemian_xiangshang" unicode="&#60170;" d="M533.333333 302.933333L358.4 128 298.666667 187.733333l234.666666 234.666667 234.666667-234.666667-59.733333-59.733333-174.933334 174.933333z m0 256L358.4 384 298.666667 448 533.333333 682.666667l234.666667-234.666667-59.733333-59.733333-174.933334 170.666666z"  horiz-adv-x="1024" />
+
+    
+
+
+  </font>
+</defs></svg>

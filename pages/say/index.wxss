@@ -1,0 +1,78 @@
+page {
+  display: block;
+  background-color: #f0f2f5;
+  height: 100%;
+}
+
+.say-box {
+  width: 96%;
+  height: 150rpx;
+  background-color: #FFF;
+  border-radius: 15rpx;
+  margin: 15rpx 0 0 2%;
+  z-index: 1;
+}
+
+.say-content {
+  font-size: 10pt;
+  display: block;
+  padding: 15rpx 0 0 20rpx;
+  text-align: left;
+}
+
+.say-btn-box {
+  width: 62rpx;
+  height: 140rpx;
+  background-color: #fff;
+  position: fixed;
+  right: 0px; 
+  bottom: 0px;
+  border-radius: 20rpx;
+  margin: 0 15rpx 20rpx 0;
+  z-index: 9999;
+  border: 1px solid #aaa;
+}
+
+.say-btn-box i {
+  width: 62rpx;
+  height: 60rpx;
+  display: block;
+  text-align: center;
+  margin-top: 9rpx;
+}
+
+.ihr {
+  border: 1px solid #000;
+  width: 45rpx;
+}
+
+.say-write-box {
+  height: 400rpx;
+  border-radius: 20rpx;
+  width: 94%;
+  z-index: 9999;
+  background-color: #fff;
+  border: 2px solid #FFC0CB;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  margin: auto;
+  display: none;
+}
+
+.say-write-box-btn {
+  display: inline-block;
+  margin-top: 420rpx;
+  margin-left: 25%;
+  width: 50%;
+  height: 70rpx;
+  border-radius: 20rpx;
+  font-size: 10pt;
+  vertical-align: middle;
+  text-align: center;
+  line-height: 70rpx;
+  background-image: -webkit-linear-gradient(-90deg, #FF1493, #FFC0CB);
+  background-image: linear-gradient(90deg,#FF1493,#FFC0CB);
+}

@@ -1,12 +1,13 @@
 {
-  "pages":[
-    "pages/index/index", 
+  "pages": [
+    "pages/index/index",
     "pages/about/index",
     "pages/respecting/index",
     "pages/features/index",
-    "pages/feedback/index"
+    "pages/feedback/index",
+    "pages/aid/index"
   ],
-  "window":{
+  "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#FFC0CB",
     "navigationBarTitleText": "梓与你说",
@@ -21,8 +22,14 @@
       {
         "pagePath": "pages/index/index",
         "iconPath": "assets/icon/tab_1.png",
-        "selectedIconPath": "assets/icon/tab_1s.png", 
+        "selectedIconPath": "assets/icon/tab_1s.png",
         "text": "首页"
+      },
+      {
+        "pagePath": "pages/aid/index",
+        "iconPath": "assets/icon/tab_aid.png",
+        "selectedIconPath": "assets/icon/tab_aids.png",
+        "text": "应援"
       },
       {
         "pagePath": "pages/about/index",
